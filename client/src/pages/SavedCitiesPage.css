@@ -1,0 +1,182 @@
+/* frontend/src/pages/SavedCitiesPage.css */
+
+.saved-cities-page {
+    padding: 30px 20px;
+    max-width: 1200px; /* Wider for grid layout */
+    margin: 20px auto;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.saved-cities-page h2 {
+    font-size: 2.5em;
+    color: #2c3e50;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.loading-full-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 80px); /* Adjust based on navbar height */
+    font-size: 1.5em;
+    color: #555;
+}
+
+.no-cities-message {
+    font-size: 1.1em;
+    color: #777;
+    text-align: center;
+    padding: 20px;
+    background-color: #f8f8f8;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 600px;
+}
+
+.cities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid for city cards */
+    gap: 30px;
+    width: 100%;
+    justify-content: center;
+}
+
+.city-card {
+    background-color: #f0f8ff; /* Light blue background for cards */
+    border-radius: 15px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.city-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.city-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 15px;
+    margin-bottom: 10px;
+}
+
+.city-header h3 {
+    font-size: 1.8em;
+    color: #2980b9;
+    margin: 0;
+}
+
+.delete-city-button {
+    background-color: #dc3545; /* Red */
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.9em;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.delete-city-button:hover {
+    background-color: #c82333;
+    transform: translateY(-1px);
+}
+
+/* Current Weather within Saved City Card */
+.current-saved-weather {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 15px;
+    border-bottom: 1px dashed #e0e0e0;
+    margin-bottom: 15px;
+}
+
+.weather-icon-small {
+    width: 70px;
+    height: 70px;
+    margin-bottom: 5px;
+}
+
+.temp-main {
+    font-size: 2em;
+    font-weight: bold;
+    color: #333;
+    margin: 0;
+}
+
+.desc-main {
+    font-size: 1.1em;
+    text-transform: capitalize;
+    color: #555;
+    margin-top: 5px;
+}
+
+.details-main {
+    font-size: 0.95em;
+    color: #777;
+    margin-top: 10px;
+}
+
+/* Forecast within Saved City Card */
+.saved-forecast-section h4 {
+    text-align: center;
+    color: #444;
+    font-size: 1.3em;
+    margin-bottom: 15px;
+}
+
+.saved-forecast-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); /* Mini grid for forecast days */
+    gap: 10px;
+    justify-content: center;
+}
+
+.saved-forecast-day-card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
+}
+
+.forecast-date-small {
+    font-size: 0.8em;
+    font-weight: bold;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.forecast-icon-small {
+    width: 40px;
+    height: 40px;
+    margin: 5px 0;
+}
+
+.forecast-temp-small {
+    font-size: 0.9em;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .cities-grid {
+        grid-template-columns: 1fr; /* Stack cards on smaller screens */
+    }
+}
