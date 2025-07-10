@@ -1,0 +1,204 @@
+/* frontend/src/components/WeatherDisplay.css */
+
+.weather-display-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.weather-content-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    width: 100%;
+    max-width: 900px;
+    box-sizing: border-box;
+}
+
+
+/* Current Weather Card */
+.current-weather-card {
+    background: linear-gradient(135deg, #87CEEB 0%, #5DADE2 100%);
+    color: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 100%;
+    flex: 1;
+    min-width: 250px;
+    max-width: 350px;
+    box-sizing: border-box;
+    transition: transform 0.3s ease;
+}
+
+.current-weather-card:hover {
+    transform: translateY(-5px);
+}
+
+.current-weather-card h2 {
+    font-size: 2.2em;
+    margin-bottom: 8px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.current-weather-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.weather-icon {
+    width: 80px;
+    height: 80px;
+    filter: drop-shadow(2px 2px 5px rgba(0, 0, 0, 0.3));
+}
+
+.temperature {
+    font-size: 3em;
+    font-weight: bold;
+    margin: 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.description {
+    font-size: 1.1em;
+    text-transform: capitalize;
+    margin-top: 3px;
+}
+
+.additional-info p {
+    font-size: 1em;
+    margin: 3px 0;
+}
+
+/* Forecast Section */
+.forecast-section {
+    background-color: #f0f8ff;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    flex: 2;
+    min-width: 480px; /* Increased min-width slightly to accommodate wider forecast grid */
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.forecast-section h3 {
+    text-align: center;
+    color: #2c3e50;
+    font-size: 1.6em;
+    margin-bottom: 20px;
+}
+
+.forecast-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+    justify-content: center;
+}
+
+.forecast-day-card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 10px 8px; /* Adjusted padding - reduced vertical, slightly increased horizontal */
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.forecast-day-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.forecast-date {
+    font-weight: bold;
+    color: #555;
+    margin-bottom: 3px;
+    font-size: 0.85em; /* Slightly reduced font size if needed, but primary fix is width */
+    white-space: nowrap; /* Prevent text from wrapping within the element */
+}
+
+.forecast-icon {
+    width: 50px;
+    height: 50px;
+    margin: 3px 0;
+}
+
+.forecast-temp {
+    font-size: 1em;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 3px;
+}
+
+.forecast-description {
+    font-size: 0.75em; /* Slightly reduced for compactness */
+    color: #666;
+    text-transform: capitalize;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .weather-content-wrapper {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .current-weather-card,
+    .forecast-section {
+        max-width: 100%;
+        min-width: unset;
+    }
+
+    .current-weather-card {
+        padding: 20px;
+    }
+
+    .current-weather-card h2 {
+        font-size: 2em;
+    }
+
+    .temperature {
+        font-size: 3em;
+    }
+
+    .forecast-section {
+        padding: 15px;
+    }
+
+    .forecast-grid {
+        /* When stacking, allow more flexible wrapping of forecast cards */
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    }
+    .forecast-day-card {
+        padding: 10px; /* Adjust padding for stacked view */
+    }
+    .forecast-date {
+        white-space: normal; /* Allow wrapping on small screens if necessary */
+    }
+}
+
+@media (max-width: 600px) {
+    .forecast-grid {
+        grid-template-columns: repeat(auto-fit, minmax(85px, 1fr)); /* Slightly larger min-width for very small screens */
+    }
+
+    .current-weather-card {
+      padding: 18px;
+    }
+    .temperature {
+      font-size: 2.8em;
+    }
+    .forecast-day-card {
+        padding: 8px; /* Further reduce padding on very small screens */
+    }
+}

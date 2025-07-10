@@ -3,19 +3,19 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
-const cors = require('cors'); // Import cors
+const cors = require('cors');
 
 // Load environment variables from .env file
 dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT || 5000; // Use port from .env or default to 5000
+const PORT = process.env.PORT || 5000;
 
 // Middleware to parse JSON bodies
 app.use(express.json());
 
 // Enable CORS for all routes
-// This allows our frontend (running on a different port) to make requests to our backend
+// In a real application, you might want to restrict this to specific origins
 app.use(cors());
 
 // Connect to MongoDB
@@ -28,9 +28,19 @@ app.get('/', (req, res) => {
     res.send('Weather App Backend is running!');
 });
 
-// Import weather routes (we'll create this file next)
+// Import and use authentication routes
+const authRoutes = require('./routes/authRoutes');
+app.use('/api/auth', authRoutes); // All auth-related routes will start with /api/auth
+
+// Import and use weather routes
 const weatherRoutes = require('./routes/weatherRoutes');
 app.use('/api', weatherRoutes); // All weather-related routes will start with /api
+
+// Error handling middleware (optional, but good practice)
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).send('Something broke!');
+});
 
 // Start the server
 app.listen(PORT, () => {
