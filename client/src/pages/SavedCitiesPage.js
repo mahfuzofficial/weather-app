@@ -72,7 +72,6 @@ function SavedCitiesPage() {
                 setSavedCities(response.data);
             } catch (err) {
                 console.error('Error fetching saved cities:', err);
-                setError('Could not load saved cities. Please try again.');
             } finally {
                 setLoading(false);
             }

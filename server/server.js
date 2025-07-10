@@ -16,7 +16,9 @@ app.use(express.json());
 
 // Enable CORS for all routes
 // In a real application, you might want to restrict this to specific origins
-app.use(cors());
+app.use(cors({
+    origin: ['http://localhost:3000', 'https://weather-app-iota-lemon-96.vercel.app/'] 
+}));
 
 // Connect to MongoDB
 mongoose.connect(process.env.MONGO_URI)
