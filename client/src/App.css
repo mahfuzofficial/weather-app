@@ -1,0 +1,194 @@
+/* frontend/src/App.css */
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f7f6;
+  color: #333;
+}
+
+.App {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.App-header {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #2c3e50;
+}
+
+.App-header h1 {
+  font-size: 2.5em;
+  margin-bottom: 10px;
+}
+
+.App-main {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* Search Section */
+.search-section {
+  background-color: #e8f0fe;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.search-section h2 {
+  color: #2980b9;
+  margin-top: 0;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.search-input-group {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.search-input-group input[type="text"] {
+  flex-grow: 1;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1em;
+}
+
+.search-input-group button {
+  padding: 12px 20px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.3s ease;
+}
+
+.search-input-group button:hover {
+  background-color: #2980b9;
+}
+
+.loading-message {
+  text-align: center;
+  color: #7f8c8d;
+}
+
+.error-message {
+  text-align: center;
+  color: #e74c3c;
+  font-weight: bold;
+}
+
+.weather-display {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.weather-display h3 {
+  color: #2c3e50;
+  margin-top: 0;
+  font-size: 1.8em;
+}
+
+.weather-display p {
+  margin: 8px 0;
+  font-size: 1.1em;
+}
+
+.save-button {
+  background-color: #28a745;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: background-color 0.3s ease;
+}
+
+.save-button:hover {
+  background-color: #218838;
+}
+
+/* Saved Cities Section */
+.saved-cities-section {
+  background-color: #f0f8ff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.saved-cities-section h2 {
+  color: #2980b9;
+  margin-top: 0;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.saved-cities-list {
+  list-style: none;
+  padding: 0;
+}
+
+.saved-city-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  border: 1px solid #eee;
+  border-radius: 5px;
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.saved-city-item span {
+  font-size: 1.1em;
+  font-weight: bold;
+  color: #555;
+}
+
+.saved-city-item .delete-button {
+  background-color: #dc3545;
+  color: white;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9em;
+  transition: background-color 0.3s ease;
+}
+
+.saved-city-item .delete-button:hover {
+  background-color: #c82333;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .App {
+    margin: 10px;
+    padding: 15px;
+  }
+
+  .search-input-group {
+    flex-direction: column;
+  }
+
+  .search-input-group button {
+    width: 100%;
+  }
+}
