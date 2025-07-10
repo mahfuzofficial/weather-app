@@ -1,0 +1,190 @@
+/* frontend/src/pages/ForecastModal.css */
+
+.modal-backdrop {
+    position: fixed; /* Covers the entire viewport */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay, slightly lighter */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensure it's on top of everything */
+    backdrop-filter: blur(5px); /* Optional: Adds a subtle blur to the background */
+    -webkit-backdrop-filter: blur(5px); /* For Safari */
+}
+
+.forecast-modal-content {
+    background-color: #ffffff;
+    border-radius: 18px; /* Slightly larger border-radius */
+    padding: 35px; /* Increased padding */
+    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.25); /* More prominent shadow */
+    max-width: 90%; /* Responsive width */
+    width: min-content; /* Slightly wider max width for larger screens */
+    max-height: 90vh; /* Max height to prevent overflow on small screens */
+    overflow-y: auto; /* Enable scrolling if content exceeds max-height */
+    position: relative; /* For positioning the close button */
+    animation: fadeInScale 0.3s ease-out; /* Simple entry animation */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start
+    font-family 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Ensure consistent font */
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.95); /* Starts slightly smaller */
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.modal-close-button {
+    position: absolute;
+    top: 20px; /* Slightly more space from top */
+    right: 20px; /* Slightly more space from right */
+    background: none;
+    border: none;
+    font-size: 2.2em; /* Larger close button */
+    color: #777; /* Softer color */
+    cursor: pointer;
+    line-height: 1;
+    transition: color 0.2s ease;
+}
+
+.modal-close-button:hover {
+    color: #2c3e50; /* Darker on hover */
+}
+
+.forecast-modal-content h3 {
+    text-align: center;
+    color: #2c3e50;
+    margin-top: 0;
+    margin-bottom: 30px; /* Increased margin */
+    font-size: 2em; /* Slightly larger heading */
+    font-weight: 700;
+    padding-bottom: 18px; /* More padding below heading */
+    border-bottom: 2px solid #3498db20; /* Subtle blue border for heading */
+    width: 100%; /* Ensure heading takes full width */
+}
+
+.modal-forecast-grid {
+    display: flex;
+    justify-content: space-around; /* Better spacing for wrapped items */
+    flex-wrap: nowrap; /* Allow cards to wrap to the next line */
+    gap: 15px; /* Space between forecast day cards */
+    width: 95%; /* Ensure grid takes almost full width of modal */
+    margin-bottom: 10px;
+}
+
+.modal-forecast-day-card {
+    background-color: #ecf0f1; /* Light gray background for contrast */
+    border-radius: 12px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08); /* Soft shadow */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: 1px solid #d3d3d350; /* Very light border */
+    min-width: 110px; /* Minimum width for day card */
+    flex-basis: calc(20% - 15px); /* Allows for roughly 5 columns with gap */
+    display: flex; /* For internal centering */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-forecast-day-card:hover {
+    transform: translateY(-3px); /* Subtle lift on hover */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.12); /* Enhanced shadow on hover */
+}
+
+/* Re-using some styles for forecast items within modal */
+.modal-forecast-day-card .forecast-date-small {
+    font-size: 0.95em; /* Slightly larger date */
+    font-weight: 600;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.modal-forecast-day-card .forecast-icon-small {
+    width: 65px; /* Larger icon in modal */
+    height: 65px;
+    margin: 10px 0;
+}
+
+.modal-forecast-day-card .forecast-temp-small {
+    font-size: 1.1em; /* More prominent temperature */
+    font-weight: bold;
+    color: #333;
+    margin-top: 10px;
+    white-space: nowrap;
+}
+
+/* Responsive adjustments for modal */
+@media (max-width: 768px) {
+    .forecast-modal-content {
+        padding: 25px;
+        width: 95%;
+    }
+
+    .forecast-modal-content h3 {
+        font-size: 1.7em;
+        margin-bottom: 25px;
+    }
+
+    .modal-forecast-grid {
+        gap: 10px;
+    }
+
+    .modal-forecast-day-card {
+        padding: 12px;
+        min-width: 90px;
+        flex-basis: calc(33.33% - 10px); /* Roughly 3 columns */
+    }
+
+    .modal-forecast-day-card .forecast-icon-small {
+        width: 55px;
+        height: 55px;
+    }
+}
+
+@media (max-width: 480px) {
+    .forecast-modal-content {
+        border-radius: 12px;
+        padding: 20px;
+    }
+
+    .modal-close-button {
+        font-size: 1.8em;
+        top: 15px;
+        right: 15px;
+    }
+
+    .forecast-modal-content h3 {
+        font-size: 1.4em;
+        margin-bottom: 20px;
+    }
+
+    .modal-forecast-grid {
+        gap: 8px;
+    }
+
+    .modal-forecast-day-card {
+        padding: 10px;
+        min-width: 70px;
+        flex-basis: calc(50% - 8px); /* 2 columns */
+    }
+
+    .modal-forecast-day-card .forecast-icon-small {
+        width: 45px;
+        height: 45px;
+    }
+
+    .modal-forecast-day-card .forecast-temp-small {
+        font-size: 0.95em;
+    }
+}
